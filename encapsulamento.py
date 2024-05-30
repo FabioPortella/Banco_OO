@@ -1,5 +1,6 @@
 class Conta:
-    def __init__(self, saldo=0):
+    def __init__(self, nro_agencia, saldo=0):
+        self.nro_agencia = nro_agencia
         self._saldo = saldo
 
     def depositar(self, valor):
@@ -10,7 +11,13 @@ class Conta:
         # ...
         self._saldo -= valor
 
+    def mostrar_saldo(self):
+        # ...
+        return self._saldo
 
-conta = Conta(100)
+
+conta = Conta("0001", 100)
 conta.depositar(150)
-print(conta._saldo)
+
+print(f"Saldo de R${conta.mostrar_saldo()},00")
+print(f"Agencia {conta.nro_agencia}")
